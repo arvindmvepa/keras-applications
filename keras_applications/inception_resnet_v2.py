@@ -253,7 +253,7 @@ def InceptionResNetV2(include_top=True,
             img_input = input_tensor
 
     # Stem block: 35 x 35 x 192
-    x = conv2d_bn(img_input, 32, 3, strides=2, padding='valid', name="ds_block")
+    x = conv2d_bn(img_input, 32, 3, strides=2, padding='valid', name="ds1_block")
     x = conv2d_bn(x, 32, 3, padding='valid')
     x = conv2d_bn(x, 64, 3)
     x = layers.MaxPooling2D(3, strides=2)(x)
