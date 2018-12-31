@@ -169,7 +169,7 @@ def Xception(include_top=True,
                             strides=(2, 2),
                             padding='same',
                             name='block2_pool')(x)
-    x = layers.add([x, residual])
+    x = layers.add([x, residual], name="ds2_block")
 
     residual = layers.Conv2D(256, (1, 1), strides=(2, 2),
                              padding='same', use_bias=False)(x)
@@ -191,7 +191,7 @@ def Xception(include_top=True,
     x = layers.MaxPooling2D((3, 3), strides=(2, 2),
                             padding='same',
                             name='block3_pool')(x)
-    x = layers.add([x, residual], name="block3_sum")
+    x = layers.add([x, residual], name="ds3_block")
 
     residual = layers.Conv2D(728, (1, 1),
                              strides=(2, 2),
